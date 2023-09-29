@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.min.js" integrity="sha512-4b1zfeOuJCy8B/suCMGNcEkMcQkQ+/jQ6HlJIaYVGvg2ZydPvdp7GY0CuRVbNpSxNVFqwTAmls2ftKSkDI9vtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./nupx.png" type="image/x-icon">
+    <title>nupx - AES Encrypt & Decrypt</title>
+</head>
+<body>
+    <header>
+        nupx : AES Encrypt & Decrypt
+    </header>
+    <main>
+        <div class="splitleft" id="encryptDIV">
+            <span class="title">Plain Text to Encrypted</span>
+            <label for="inStr">Plain Text [<span id="cnStr"></span>]</label>
+            <textarea name="inStr" id="inStr" oninput="countIt('inStr', 'cnStr')"></textarea>
+
+            <label for="inPas">Password [<span id="cnPas"></span>] </label>
+            <input name="inPas" id="inPas" type="text" oninput="countIt('inPas', 'cnPas')">
+
+            <button onclick="encryptIt()">Encrypt</button><hr>
+
+            <label for="inPas">Result: Encrypted Text [<span id="cnEnc"></span>] </label>
+            <textarea name="rsEnc" id="rsEnc" disabled></textarea>
+        </div>
+        <div class="splitmid"></div>
+        <div class="splitright" id="decryptDIV">
+            <span class="title">Encrypted to Plain Text</span>
+            <label for="inEnc">Encrypted Text [<span id="dnEnc"></span>]</label>
+            <textarea name="inEnc" id="inEnc" oninput="countIt('inEnc', 'dnEnc')"></textarea>
+
+            <label for="unPas">Password [<span id="dnPas"></span>] </label>
+            <input name="unPas" id="unPas" type="text" oninput="countIt('unPas', 'dnPas')">
+
+            <button onclick="decryptIt()">Decrypt</button><hr>
+
+            <label for="rsStr">Result: Decrypted String [<span id="dnStr"></span>] </label>
+            <textarea name="rsStr" id="rsStr" disabled></textarea>
+        </div>
+    </main>
+
+    <footer>
+        library:
+        <a href="https://cryptojs.gitbook.io/docs/" target="_blank" rel="noopener noreferrer">cryptoJS</a>
+        //
+        code repo:
+        <a href="https://github.com/nupx/aes" target="_blank" rel="noopener noreferrer">github/nupx</a>
+        //
+        donate:
+        <a href="https://nupx.github.io/tip" target="_blank" rel="noopener noreferrer">nupx/tip</a>
+    </footer>
+    
+    <script src="./aes-nupx.js"></script>
+</body>
+</html>
